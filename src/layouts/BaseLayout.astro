@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 const {
   title = "All Out Design",
   description = "Renovation & Interior Design",
@@ -25,7 +26,7 @@ const {
     {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
     {ogImage && <meta property="og:image" content={ogImage} />}
 
-    <!-- Twitter -->
+    <!-- Twitter --> 
     <meta name="twitter:card" content={ogImage ? "summary_large_image" : "summary"} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />

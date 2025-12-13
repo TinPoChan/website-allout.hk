@@ -1,18 +1,21 @@
 ---
 import SiteLayout from "../../components/SiteLayout.astro";
-import { getCollection } from "astro:content";
 import JsonLd from "../../components/JsonLd.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map((p) => ({
-    params: { slug: p.slug },
-    props: { post: p },
+  const posts: CollectionEntry<"blog">[] = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
   }));
 }
 
-const { post } = Astro.props;
+const { post } = Astro.props as { post: CollectionEntry<"blog"> };
 const { Content } = await post.render();
+
+// canonical（dev 用 localhost，上線用 astro.config 的 site）
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
 ---
 
 <SiteLayout
@@ -27,15 +30,25 @@ const { Content } = await post.render();
       summary: post.data.summary,
       date: post.data.date,
       coverImage: post.data.coverImage,
-      canonical: new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString(),
+      canonical,
     }}
   />
-  <article style="max-width: 760px;">
-    <h1 style="margin:0 0 10px;">{post.data.title}</h1>
-    <div style="color:#999; font-size:13px; margin-bottom:16px;">
-      {post.data.date}
-      {post.data.tags?.length ? ` · ${post.data.tags.join(" / ")}` : ""}
-    </div>
+
+  <article class="prose">
+    <header style="margin-bottom: var(--space-5);">
+      <h1 style="margin-bottom: var(--space-2);">{post.data.title}</h1>
+
+      <div class="muted" style="font-size: 13px;">
+        {post.data.date}
+        {post.data.tags?.length ? ` · ${post.data.tags.join(" / ")}` : ""}
+      </div>
+
+      {post.data.summary && (
+        <p class="muted" style="margin-top: var(--space-3);">
+          {post.data.summary}
+        </p>
+      )}
+    </header>
 
     <Content />
   </article>

@@ -1,21 +1,42 @@
 ---
 import SiteLayout from "../../components/SiteLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
-const posts = (await getCollection("blog"))
+const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
   .sort((a, b) => b.data.date.localeCompare(a.data.date));
 ---
 
-<SiteLayout title="專欄 | ALL OUT DESIGN" description="裝修設計與工程知識專欄。">
-  <h1 style="margin:0 0 10px;">專欄</h1>
+<SiteLayout
+  title="專欄 | ALL OUT DESIGN"
+  description="裝修設計與工程知識專欄。"
+>
+  <section class="section">
+    <div class="container">
+      <h1>專欄</h1>
+      <p class="muted">裝修設計與工程知識分享</p>
 
-  <div style="display:grid; gap:12px; margin-top:16px;">
-    {posts.map((p) => (
-      <a href={`/blog/${p.slug}`} style="border:1px solid #eee; padding:16px; border-radius:12px; text-decoration:none; color:inherit;">
-        <div style="font-weight:700;">{p.data.title}</div>
-        <div style="color:#666; margin-top:6px;">{p.data.summary}</div>
-        <div style="color:#999; margin-top:8px; font-size:13px;">{p.data.date}</div>
-      </a>
-    ))}
-  </div>
+      <div class="post-grid">
+        {posts.map((p) => (
+          <a href={`/blog/${p.slug}`} class="card post-card">
+            {p.data.coverImage ? (
+              <img
+                class="post-thumb"
+                src={p.data.coverImage}
+                alt={p.data.title}
+                loading="lazy"
+              />
+            ) : (
+              <div class="post-thumb-placeholder" aria-hidden="true" />
+            )}
+
+            <div class="post-meta">
+              <h3>{p.data.title}</h3>
+              <p class="muted">{p.data.summary}</p>
+              <div class="post-date">{p.data.date}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 </SiteLayout>

@@ -1,0 +1,230 @@
+/* =========
+   Design tokens
+   ========= */
+:root {
+  --container: 1080px;
+
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #5a5a5a;
+  --border: #e9e9e9;
+  --soft: #f6f6f6;
+
+  --accent: #0f2a44; /* 深藍：穩重 */
+  --accent-2: #0a4a6e;
+
+  --radius: 12px;
+
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* =========
+   Base
+   ========= */
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover { color: var(--accent); }
+
+/* Headings */
+h1, h2, h3 {
+  line-height: 1.25;
+  margin: 0 0 var(--space-3);
+}
+h1 { font-size: 34px; letter-spacing: -0.02em; }
+h2 { font-size: 24px; letter-spacing: -0.01em; margin-top: var(--space-6); }
+h3 { font-size: 18px; margin-top: var(--space-4); }
+
+/* Paragraph + lists */
+p { margin: 0 0 var(--space-3); color: var(--text); }
+small, .muted { color: var(--muted); }
+ul, ol { margin: 0 0 var(--space-3); padding-left: 1.2em; }
+li { margin: 0 0 var(--space-1); }
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Selection */
+::selection {
+  background: rgba(15, 42, 68, 0.12);
+}
+
+/* =========
+   Layout helpers (optional)
+   ========= */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.section {
+  padding: var(--space-6) 0;
+}
+
+/* =========
+   Components
+   ========= */
+
+/* Card */
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  background: #fff;
+  margin-bottom: var(--space-4);
+}
+.card:hover {
+  border-color: #dcdcdc;
+}
+
+/* Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  font-weight: 600;
+}
+.btn:hover {
+  border-color: #dcdcdc;
+  color: var(--accent);
+}
+
+/* Button primary */
+.btn-primary {
+  border-color: rgba(15, 42, 68, 0.25);
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--accent-2);
+  color: #fff;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--muted);
+  background: #fff;
+}
+
+/* Divider */
+.hr {
+  height: 1px;
+  background: var(--border);
+  border: 0;
+  margin: var(--space-6) 0;
+}
+
+/* Article content look (blog) */
+.prose {
+  max-width: 760px;
+}
+.prose p { color: #1a1a1a; }
+.prose img {
+  margin: var(--space-5) 0;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.prose blockquote {
+  margin: var(--space-4) 0;
+  padding: 0 0 0 var(--space-3);
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .card[style*="grid-template-columns: 160px 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Blog list: left thumbnail + right content */
+.post-card {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--space-4);
+  align-items: stretch;
+  margin-bottom: var(--space-4);
+}
+
+.post-thumb,
+.post-thumb-placeholder {
+  width: 100%;
+  min-height: 110px;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--soft);
+}
+
+.post-thumb {
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.post-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.post-meta h3 {
+  margin: 0;
+}
+
+.post-meta p {
+  margin: 0;
+}
+
+.post-date {
+  margin-top: auto;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .post-card {
+    grid-template-columns: 1fr;
+  }
+}
