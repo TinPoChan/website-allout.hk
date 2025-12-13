@@ -1,0 +1,29 @@
+---
+const nav = [
+  { href: "/", label: "首頁" },
+  { href: "/projects", label: "作品" },
+  { href: "/blog", label: "專欄" },
+  { href: "/about", label: "關於我們" },
+  { href: "/contact", label: "聯絡" },
+];
+const { currentPath = "/" } = Astro.props;
+---
+
+<header style="border-bottom: 1px solid #e5e5e5;">
+  <div style="max-width: 1080px; margin: 0 auto; padding: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+    <a href="/" style="text-decoration: none; color: inherit; font-weight: 700;">
+      ALL OUT DESIGN
+    </a>
+
+    <nav style="display: flex; gap: 14px; flex-wrap: wrap;">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          style={`text-decoration:none; color: ${currentPath === item.href ? "black" : "#444"}; font-weight:${currentPath === item.href ? "700" : "500"};`}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>

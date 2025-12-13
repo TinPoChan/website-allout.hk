@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "./Navbar.astro";
+import Footer from "./Footer.astro";
+
+const { title, description } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<BaseLayout title={title} description={description}>
+  <Navbar currentPath={currentPath} />
+
+  <main style="max-width: 1080px; margin: 0 auto; padding: 28px 16px;">
+    <slot />
+  </main>
+
+  <Footer />
+</BaseLayout>

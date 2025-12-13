@@ -1,11 +1,30 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import SiteLayout from "../components/SiteLayout.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<SiteLayout
+  title="ALL OUT DESIGN LIMITED | 裝修設計與工程"
+  description="展示作品案例與裝修設計專欄，分享工程流程、物料選擇與避坑指南。"
+>
+  <h1 style="font-size: 34px; margin: 0 0 10px;">晉力裝修設計有限公司</h1>
+  <p style="font-size: 16px; color: #444; line-height: 1.7; max-width: 720px;">
+    我哋專注住宅與商業空間的裝修設計及工程執行。網站會持續更新作品案例與專欄文章，分享設計與工程上應該注意的細節，幫你避坑、做得更靚更耐用。
+  </p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 22px;">
+    <a href="/projects" style="border:1px solid #eee; padding:16px; border-radius:12px; text-decoration:none; color:inherit;">
+      <div style="font-weight:700;">看作品</div>
+      <div style="color:#666; margin-top:6px;">案例、前後對比、工程範圍</div>
+    </a>
+
+    <a href="/blog" style="border:1px solid #eee; padding:16px; border-radius:12px; text-decoration:none; color:inherit;">
+      <div style="font-weight:700;">讀專欄</div>
+      <div style="color:#666; margin-top:6px;">流程、物料、預算與避坑</div>
+    </a>
+
+    <a href="/contact" style="border:1px solid #eee; padding:16px; border-radius:12px; text-decoration:none; color:inherit;">
+      <div style="font-weight:700;">查詢報價</div>
+      <div style="color:#666; margin-top:6px;">WhatsApp / 電話 / Email</div>
+    </a>
+  </div>
+</SiteLayout>
