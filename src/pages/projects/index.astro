@@ -1,14 +1,21 @@
 ---
 import SiteLayout from "../../components/SiteLayout.astro";
+import { getCollection } from "astro:content";
+
+const projects = (await getCollection("projects"))
+  .sort((a, b) => b.data.date.localeCompare(a.data.date));
 ---
 
 <SiteLayout title="作品集 | ALL OUT DESIGN" description="裝修設計案例與工程作品集。">
   <h1 style="margin:0 0 10px;">作品集</h1>
-  <p style="color:#444; line-height:1.7; max-width:720px;">
-    之後每個 project 都會變成一個獨立案例頁（/projects/[slug]），包含前後對比、設計重點、工程範圍、完工相。
-  </p>
 
-  <div style="margin-top:18px; border:1px dashed #ddd; padding:16px; border-radius:12px; color:#666;">
-    目前：先放 placeholder。下一步我會幫你用 Markdown content 建立真正的 project list。
+  <div style="display:grid; gap:12px; margin-top:16px;">
+    {projects.map((p) => (
+      <a href={`/projects/${p.slug}`} style="border:1px solid #eee; padding:16px; border-radius:12px; text-decoration:none; color:inherit;">
+        <div style="font-weight:700;">{p.data.title}</div>
+        <div style="color:#666; margin-top:6px;">{p.data.summary}</div>
+        <div style="color:#999; margin-top:8px; font-size:13px;">{p.data.date}{p.data.location ? ` · ${p.data.location}` : ""}</div>
+      </a>
+    ))}
   </div>
 </SiteLayout>

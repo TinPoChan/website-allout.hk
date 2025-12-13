@@ -1,0 +1,27 @@
+---
+import SiteLayout from "../../components/SiteLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((p) => ({
+    params: { slug: p.slug },
+    props: { post: p },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<SiteLayout title={`${post.data.title} | ALL OUT DESIGN`} description={post.data.summary}>
+  <article style="max-width: 760px;">
+    <h1 style="margin:0 0 10px;">{post.data.title}</h1>
+    <div style="color:#999; font-size:13px; margin-bottom:16px;">
+      {post.data.date}
+      {post.data.tags?.length ? ` · ${post.data.tags.join(" / ")}` : ""}
+    </div>
+
+    <Content />
+  </article>
+</SiteLayout>

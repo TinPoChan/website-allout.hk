@@ -1,0 +1,40 @@
+---
+import SiteLayout from "../../components/SiteLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((p) => ({
+    params: { slug: p.slug },
+    props: { project: p },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<SiteLayout title={`${project.data.title} | ALL OUT DESIGN`} description={project.data.summary}>
+  <article style="max-width: 920px;">
+    <h1 style="margin:0 0 10px;">{project.data.title}</h1>
+    <div style="color:#999; font-size:13px; margin-bottom:16px;">
+      {project.data.date}
+      {project.data.location ? ` · ${project.data.location}` : ""}
+      {project.data.size ? ` · ${project.data.size}` : ""}
+    </div>
+
+    {project.data.coverImage && (
+      <img src={project.data.coverImage} alt={project.data.title} style="width:100%; border-radius:14px; border:1px solid #eee; margin: 10px 0 18px;" loading="lazy" />
+    )}
+
+    {project.data.gallery?.length ? (
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:10px; margin: 0 0 18px;">
+        {project.data.gallery.map((url) => (
+          <img src={url} alt={project.data.title} style="width:100%; border-radius:12px; border:1px solid #eee;" loading="lazy" />
+        ))}
+      </div>
+    ) : null}
+
+    <Content />
+  </article>
+</SiteLayout>
