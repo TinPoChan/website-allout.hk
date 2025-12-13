@@ -1,6 +1,7 @@
 ---
 import SiteLayout from "../../components/SiteLayout.astro";
 import { getCollection } from "astro:content";
+import JsonLd from "../../components/JsonLd.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -14,7 +15,21 @@ const { project } = Astro.props;
 const { Content } = await project.render();
 ---
 
-<SiteLayout title={`${project.data.title} | ALL OUT DESIGN`} description={project.data.summary}>
+<SiteLayout
+  title={`${project.data.title} | ALL OUT DESIGN`}
+  description={project.data.summary}
+  ogImage={project.data.coverImage}
+>
+  <JsonLd
+    type="project"
+    data={{
+      title: project.data.title,
+      summary: project.data.summary,
+      coverImage: project.data.coverImage,
+      canonical: new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString(),
+    }}
+  />
+
   <article style="max-width: 920px;">
     <h1 style="margin:0 0 10px;">{project.data.title}</h1>
     <div style="color:#999; font-size:13px; margin-bottom:16px;">

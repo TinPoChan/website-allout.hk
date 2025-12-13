@@ -1,5 +1,10 @@
 ---
-const { title = "All Out Design", description = "Renovation & Interior Design" } = Astro.props;
+const {
+  title = "All Out Design",
+  description = "Renovation & Interior Design",
+  canonicalUrl,
+  ogImage,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -7,13 +12,24 @@ const { title = "All Out Design", description = "Renovation & Interior Design" }
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>{title}</title>
     <meta name="description" content={description} />
 
-    <!-- Basic OG -->
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content={ogImage ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <link rel="icon" href="/favicon.svg" />
   </head>

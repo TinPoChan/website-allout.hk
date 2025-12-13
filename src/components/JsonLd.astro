@@ -1,0 +1,73 @@
+---
+/**
+ * props:
+ * - type: "organization" | "blog" | "project"
+ * - data: object（對應類型所需資料）
+ */
+const { type, data } = Astro.props;
+
+let schema = null;
+
+if (type === "organization") {
+  schema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "ALL OUT DESIGN LIMITED",
+    url: Astro.site,
+    areaServed: "HK",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Hong Kong",
+    },
+  };
+}
+
+if (type === "blog") {
+  schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: data.title,
+    description: data.summary,
+    datePublished: data.date,
+    dateModified: data.date,
+    author: {
+      "@type": "Organization",
+      name: "ALL OUT DESIGN LIMITED",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "ALL OUT DESIGN LIMITED",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": data.canonical,
+    },
+    image: data.coverImage ? [data.coverImage] : undefined,
+  };
+}
+
+if (type === "project") {
+  schema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: data.title,
+    description: data.summary,
+    creator: {
+      "@type": "Organization",
+      name: "ALL OUT DESIGN LIMITED",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": data.canonical,
+    },
+    image: data.coverImage ? [data.coverImage] : undefined,
+  };
+}
+---
+
+{schema && (
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(schema)}
+  />
+)}
