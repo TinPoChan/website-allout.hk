@@ -1,33 +1,197 @@
 ---
 import SiteLayout from "../components/SiteLayout.astro";
 import JsonLd from "../components/JsonLd.astro";
+
+const phoneDisplay = "5393 6777";
+const waLink = "https://wa.me/85253936777";
+
+// 你可以之後改成由 content collection 拉 featured projects
+const featured = [
+  {
+    title: "Mid-Levels Apartment",
+    subtitle: "中西區公寓｜600呎｜(翻新/設計)",
+    image:
+      "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1400&q=80",
+    href: "/projects",
+  },
+  {
+    title: "North Point Residence",
+    subtitle: "北角住宅｜650呎｜日系簡約",
+    image:
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
+    href: "/projects",
+  },
+  {
+    title: "Kowloon Tong House",
+    subtitle: "九龍塘洋房｜1500呎｜簡約",
+    image:
+      "https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1400&q=80",
+    href: "/projects",
+  },
+];
+
+const process = [
+  { no: "01", zh: "需求諮詢", en: "Initial Consultation" },
+  { no: "02", zh: "設計方案", en: "Design Proposal" },
+  { no: "03", zh: "報價合約", en: "Quotation & Contract" },
+  { no: "04", zh: "竣工交付", en: "Project Handover" },
+];
+
+const services = [
+  {
+    zh: "全屋翻新",
+    en: "Full Renovation",
+    items: ["浴室廚房翻新", "鋪磚油漆", "水電維修"],
+  },
+  {
+    zh: "局部工程",
+    en: "Partial Renovation",
+    items: ["拆卸間隔", "水電改動", "局部工程"],
+  },
+  {
+    zh: "設計＋施工",
+    en: "Design & Build",
+    items: ["概念設計", "工程監督", "物料採購"],
+  },
+];
 ---
 
 <SiteLayout
-  title="ALL OUT DESIGN LIMITED | 裝修設計與工程"
+  title="ALL OUT DESIGN LIMITED｜室內設計與裝修工程"
   description="展示作品案例與裝修設計專欄，分享工程流程、物料選擇與避坑指南。"
 >
-<JsonLd type="organization" />
+<JsonLd type="Organization" />
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <div class="hero__kicker">專注住宅裝修｜設計＋工程一站式｜工期與成本透明</div>
+        <h1 class="hero__title">以設計落地，用工程交付。</h1>
+        <p class="hero__desc">
+          ALL OUT DESIGN 提供住宅室內設計、裝修工程及交付管理。用清晰流程、可靠工藝，幫你把理想落地。
+        </p>
 
-  <h1 style="font-size: 34px; margin: 0 0 10px;">晉力裝修設計有限公司</h1>
-  <p style="font-size: 16px; color: #444; line-height: 1.7; max-width: 720px;">
-    我哋專注住宅與商業空間的裝修設計及工程執行。網站會持續更新作品案例與專欄文章，分享設計與工程上應該注意的細節，幫你避坑、做得更靚更耐用。
-  </p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href={waLink} target="_blank" rel="noopener">
+            WhatsApp 立即要價
+          </a>
+          <a class="btn" href="/projects">View Projects</a>
+        </div>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 22px;">
-    <a href="/projects" style="border:1px solid #eee; padding:16px; border-radius:12px; text-decoration:none; color:inherit;">
-      <div style="font-weight:700;">看作品</div>
-      <div style="color:#666; margin-top:6px;">案例、前後對比、工程範圍</div>
-    </a>
+        <div class="hero__stats">
+          <div class="stat">
+            <div class="stat__num">10+</div>
+            <div class="stat__label">年經驗</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">一站式</div>
+            <div class="stat__label">設計與施工</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">透明</div>
+            <div class="stat__label">報價與流程</div>
+          </div>
+        </div>
+      </div>
 
-    <a href="/blog" style="border:1px solid #eee; padding:16px; border-radius:12px; text-decoration:none; color:inherit;">
-      <div style="font-weight:700;">讀專欄</div>
-      <div style="color:#666; margin-top:6px;">流程、物料、預算與避坑</div>
-    </a>
+      <div class="hero__media">
+        <img
+          src="https://images.unsplash.com/photo-1505692952047-1a78307da8f2?auto=format&fit=crop&w=1800&q=80"
+          alt="ALL OUT DESIGN featured interior"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
 
-    <a href="/contact" style="border:1px solid #eee; padding:16px; border-radius:12px; text-decoration:none; color:inherit;">
-      <div style="font-weight:700;">查詢報價</div>
-      <div style="color:#666; margin-top:6px;">WhatsApp / 電話 / Email</div>
-    </a>
+  <!-- FEATURED PROJECTS -->
+  <section class="section">
+    <div class="container">
+      <div class="sectionHead">
+        <h2 class="sectionTitle">精選案例 <span class="sectionTitle__en">Featured Projects</span></h2>
+        <a class="sectionLink" href="/projects">查看全部案例 →</a>
+      </div>
+
+      <div class="grid3">
+        {featured.map((p) => (
+          <a class="projectCard" href={p.href}>
+            <img class="projectCard__img" src={p.image} alt={p.title} loading="lazy" />
+            <div class="projectCard__body">
+              <div class="projectCard__title">{p.title}</div>
+              <div class="projectCard__sub muted">{p.subtitle}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section section--soft">
+    <div class="container">
+      <div class="sectionHead">
+        <h2 class="sectionTitle">我們的流程 <span class="sectionTitle__en">Our Process</span></h2>
+      </div>
+
+      <div class="grid4">
+        {process.map((s) => (
+          <div class="stepCard">
+            <div class="stepCard__no">{s.no}</div>
+            <div class="stepCard__zh">{s.zh}</div>
+            <div class="stepCard__en muted">{s.en}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+      <div class="sectionHead">
+        <h2 class="sectionTitle">我們的服務 <span class="sectionTitle__en">Our Services</span></h2>
+      </div>
+
+      <div class="grid3">
+        {services.map((s) => (
+          <div class="serviceCard">
+            <div class="serviceCard__title">{s.zh} <span class="serviceCard__en muted">{s.en}</span></div>
+            <ul class="serviceCard__list">
+              {s.items.map((it) => <li>{it}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--soft">
+    <div class="container">
+      <div class="sectionHead">
+        <h2 class="sectionTitle">客戶讚譽 <span class="sectionTitle__en">Client Testimonials</span></h2>
+      </div>
+
+      <div class="grid2">
+        <div class="quoteCard">
+          <div class="quoteMark">“</div>
+          <p>報價清晰、工程進度可靠，交付准時有交代。</p>
+          <div class="muted">— Quarry Bay Client</div>
+        </div>
+        <div class="quoteCard">
+          <div class="quoteMark">“</div>
+          <p>設計貼地，施工細緻，溝通效率高。</p>
+          <div class="muted">— Wong Tai Sin Resident</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STICKY CTA BAR -->
+  <div class="ctaBar">
+    <div class="ctaBar__inner">
+      <div class="ctaBar__text">立即約免費初步諮詢 <span class="muted">Get Your Free Consultation</span></div>
+      <a class="ctaBar__btn" href={waLink} target="_blank" rel="noopener">WhatsApp 立即聯絡</a>
+    </div>
   </div>
 </SiteLayout>

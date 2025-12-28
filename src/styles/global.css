@@ -228,3 +228,148 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========
+   Home page
+   ========= */
+
+.section--soft { background: #fafafa; }
+
+.hero { padding: var(--space-6) 0; }
+.hero__grid{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+.hero__kicker{ font-size: 13px; color: var(--muted); }
+.hero__title{ margin-top: var(--space-2); margin-bottom: var(--space-3); }
+.hero__desc{ max-width: 54ch; }
+
+.hero__actions{ display: flex; gap: var(--space-2); margin-top: var(--space-4); }
+
+.hero__stats{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+.stat__num{ font-weight: 800; font-size: 22px; }
+.stat__label{ color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+.hero__media img{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+/* section header */
+.sectionHead{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.sectionTitle{ margin: 0; font-size: 20px; }
+.sectionTitle__en{ font-weight: 500; font-size: 14px; color: var(--muted); margin-left: 10px; }
+.sectionLink{ font-size: 14px; color: var(--muted); }
+.sectionLink:hover{ color: var(--accent); }
+
+/* grids */
+.grid3{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--space-4); }
+.grid4{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--space-4); }
+.grid2{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--space-4); }
+
+.projectCard{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+}
+.projectCard:hover{ border-color: #dcdcdc; }
+.projectCard__img{
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+.projectCard__body{ padding: var(--space-3); }
+.projectCard__title{ font-weight: 700; }
+.projectCard__sub{ font-size: 13px; margin-top: 6px; }
+
+.stepCard{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: var(--space-4);
+}
+.stepCard__no{ font-weight: 800; font-size: 18px; color: #222; }
+.stepCard__zh{ margin-top: 10px; font-weight: 700; }
+.stepCard__en{ font-size: 13px; margin-top: 6px; }
+
+.serviceCard{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: var(--space-4);
+}
+.serviceCard__title{ font-weight: 800; }
+.serviceCard__en{ font-weight: 500; margin-left: 10px; }
+.serviceCard__list{ margin: var(--space-3) 0 0; padding-left: 1.1em; }
+.serviceCard__list li{ margin: 0 0 8px; color: #222; }
+
+.quoteCard{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: var(--space-4);
+}
+.quoteMark{ font-size: 28px; line-height: 1; color: #bbb; margin-bottom: 10px; }
+
+/* sticky CTA bar */
+.ctaBar{
+  position: sticky;
+  bottom: 0;
+  z-index: 50;
+  background: rgba(15,42,68,0.92);
+  backdrop-filter: blur(8px);
+}
+.ctaBar__inner{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 12px var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.ctaBar__text{ color: #fff; font-weight: 700; }
+.ctaBar__text .muted{ color: rgba(255,255,255,0.75); font-weight: 500; margin-left: 10px; }
+.ctaBar__btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #1f8f4b;
+  color: #fff;
+  font-weight: 800;
+}
+.ctaBar__btn:hover{ filter: brightness(1.05); color: #fff; }
+
+@media (max-width: 900px){
+  .hero__grid{ grid-template-columns: 1fr; }
+  .grid4{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .grid3{ grid-template-columns: 1fr; }
+  .grid2{ grid-template-columns: 1fr; }
+  .ctaBar__inner{ flex-direction: column; align-items: stretch; }
+  .ctaBar__btn{ width: 100%; }
+}
