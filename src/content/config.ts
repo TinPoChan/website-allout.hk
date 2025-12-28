@@ -6,6 +6,7 @@ const blog = defineCollection({
     title: z.string(),
     date: z.string(), // 先用 string，之後可以改 z.date()
     summary: z.string(),
+    draft: z.boolean().default(false),
     tags: z.array(z.string()).default([]),
     coverImage: z.string().url().optional(),
   }),
@@ -17,6 +18,7 @@ const projects = defineCollection({
     title: z.string(),
     date: z.string(),
     summary: z.string(),
+    draft: z.boolean().default(false),
     location: z.string().optional(),
     size: z.string().optional(),
     type: z.array(z.string()).default([]),

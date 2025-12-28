@@ -2,6 +2,7 @@
 title: "（主標題：包含關鍵字，30–60 字內最好）"
 date: "2025-12-13"
 summary: "（1 句講清楚讀者得到咩；120–160 字內更適合 SEO snippet）"
+draft: true
 tags: ["報價", "避坑", "工程流程"]
 coverImage: "https://你的圖片域名/og/xxx.jpg"
 ---

@@ -3,6 +3,7 @@ title: "油塘 350 呎單位｜全屋翻新 MUJI 風"
 slug: "yau-tong-350-muji-renovation"
 date: "2025-12-13"
 summary: "重整動線 + 收納升級 + 柔和用色，令細單位更實用耐看。"
+draft: true
 location: "油塘"
 size: "350 呎"
 type: ["住宅", "全屋翻新"]
