@@ -43,11 +43,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).to
         {post.data.tags?.length ? ` · ${post.data.tags.join(" / ")}` : ""}
       </div>
 
-      {post.data.summary && (
+      <!-- {post.data.summary && (
         <p class="muted" style="margin-top: var(--space-3);">
           {post.data.summary}
         </p>
-      )}
+      )} -->
     </header>
 
     <Content />

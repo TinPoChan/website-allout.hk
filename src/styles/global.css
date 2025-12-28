@@ -157,7 +157,7 @@ img {
 
 /* Article content look (blog) */
 .prose {
-  max-width: 760px;
+  max-width: max-content;
 }
 .prose p { color: #1a1a1a; }
 .prose img {
