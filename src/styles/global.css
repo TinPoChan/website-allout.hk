@@ -248,6 +248,7 @@ img {
 .hero__kicker{ font-size: 13px; color: var(--muted); }
 .hero__title{ margin-top: var(--space-2); margin-bottom: var(--space-3); }
 .hero__desc{ max-width: 54ch; }
+.hero__desc span{ display: block; }
 
 .hero__actions{ display: flex; gap: var(--space-2); margin-top: var(--space-4); }
 
@@ -298,7 +299,7 @@ img {
 .projectCard:hover{ border-color: #dcdcdc; }
 .projectCard__img{
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
 }
 .projectCard__body{ padding: var(--space-3); }

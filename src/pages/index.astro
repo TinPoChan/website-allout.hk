@@ -1,7 +1,10 @@
 ---
 import SiteLayout from "../components/SiteLayout.astro";
 import JsonLd from "../components/JsonLd.astro";
-import Index1 from "../assets/index1.jpeg";
+import MountHavenCover from "../assets/MountHavenCover.jpeg";
+import CheungTungEstateCover from "../assets/CheungTungEstateCover.jpeg";
+import OnWahCourtCover from "../assets/OnWahCourtCover.png";
+import Home from "../assets/Home.jpg";
 
 const phoneDisplay = "5393 6777";
 const waLink = "https://wa.me/85253936777";
@@ -11,21 +14,19 @@ const featured = [
   {
     title: "青衣曉峰園全屋裝修",
     subtitle: "青衣住宅｜548呎｜木系風格",
-    image: Index1.src,
+    image: MountHavenCover.src,
     href: "/projects",
   },
   {
-    title: "North Point Residence",
-    subtitle: "北角住宅｜650呎｜日系簡約",
-    image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
+    title: "東涌翔東邨全屋裝修",
+    subtitle: "公共屋邨｜250呎｜現代簡約",
+    image: CheungTungEstateCover.src,
     href: "/projects",
   },
   {
-    title: "Kowloon Tong House",
-    subtitle: "九龍塘洋房｜1500呎｜簡約",
-    image:
-      "https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1400&q=80",
+    title: "觀塘安樺苑全屋裝修",
+    subtitle: "居屋屋苑｜250呎｜溫馨簡約",
+    image: OnWahCourtCover.src,
     href: "/projects",
   },
 ];
@@ -41,12 +42,12 @@ const services = [
   {
     zh: "全屋翻新",
     en: "Full Renovation",
-    items: ["浴室廚房翻新", "鋪磚油漆", "水電維修"],
+    items: ["浴室廚房翻新", "鋪磚油漆", "傢俬訂造"],
   },
   {
     zh: "局部工程",
     en: "Partial Renovation",
-    items: ["拆卸間隔", "水電改動", "局部工程"],
+    items: ["拆卸間隔", "水電改動", "防水工程"],
   },
   {
     zh: "設計＋施工",
@@ -65,22 +66,23 @@ const services = [
   <section class="hero">
     <div class="container hero__grid">
       <div class="hero__copy">
-        <div class="hero__kicker">專注住宅裝修｜設計＋工程一站式｜工期與成本透明</div>
-        <h1 class="hero__title">以設計落地，用工程交付。</h1>
+        <div class="hero__kicker">住宅室內設計｜裝修工程｜傢俬訂造</div>
+        <h1 class="hero__title">設計得好，也要裝修做得到。</h1>
         <p class="hero__desc">
-          ALL OUT DESIGN 提供住宅室內設計、裝修工程及交付管理。用清晰流程、可靠工藝，幫你把理想落地。
+          <span>ALL OUT DESIGN 提供住宅室內設計、裝修工程及傢俬訂造服務。</span>
+          <span>由空間規劃、報價、物料選擇到現場施工，我們用清晰流程和可靠工藝，幫你一步步把新家做好。</span>
         </p>
 
         <div class="hero__actions">
           <a class="btn btn-primary" href={waLink} target="_blank" rel="noopener">
             WhatsApp 立即要價
           </a>
-          <a class="btn" href="/projects">View Projects</a>
+          <a class="btn" href="/projects">查看全部案例</a>
         </div>
 
         <div class="hero__stats">
           <div class="stat">
-            <div class="stat__num">10+</div>
+            <div class="stat__num">8+</div>
             <div class="stat__label">年經驗</div>
           </div>
           <div class="stat">
@@ -96,7 +98,7 @@ const services = [
 
       <div class="hero__media">
         <img
-          src="https://images.unsplash.com/photo-1505692952047-1a78307da8f2?auto=format&fit=crop&w=1800&q=80"
+          src={Home.src}
           alt="ALL OUT DESIGN featured interior"
           loading="eager"
         />
