@@ -1,21 +1,149 @@
 ---
 import SiteLayout from "../components/SiteLayout.astro";
+
+
+const phoneDisplay = "5393 6777";
+const waLink = "https://wa.me/85253936777";
+const email = "lam@allout.hk";
+
+// TODO: 換成你哋真實連結
+const douyinLink = "https://v.douyin.com/ygRU8fyS_Sk/";
+const renoteLink = "https://www.xiaohongshu.com/user/profile/58f2f7de82ec39403133d4ac";
 ---
 
 <SiteLayout title="聯絡 | ALL OUT DESIGN" description="查詢報價與聯絡方式。">
-  <h1 style="margin:0 0 10px;">聯絡我們</h1>
-  <p style="color:#444; line-height:1.7; max-width:720px;">
-    你可以用以下方式聯絡我哋
-    ，無論係查詢報價、合作事宜，或者其他任何問題，我哋都樂意幫助你！
-  </p>
+  <section class="contact">
+    <div class="contact__intro">
+      <p class="eyebrow">Contact</p>
+      <h1>聯絡我們</h1>
+      <p>
+        如果你正計劃裝修、想了解報價，或者想先傾吓單位情況，
+        歡迎用以下方式聯絡我哋。我哋會盡快回覆你。
+      </p>
+    </div>
 
-  <ul style="line-height:1.9; color:#333;">
-    <li>
-      <strong>WhatsApp:</strong>
-      <a href="https://wa.me/85253936777" target="_blank" rel="noopener">
-        5393 6777
+    <div class="contact__cards">
+      <a class="contact-card contact-card--primary" href={waLink} target="_blank" rel="noopener">
+        <span class="contact-card__label">WhatsApp 查詢</span>
+        <strong>{phoneDisplay}</strong>
+        <span class="contact-card__hint">最適合查詢報價、預約睇位或初步了解裝修流程</span>
       </a>
-    </li>
-    <li><strong>Email: </strong>lam@allout.hk</li>
-  </ul>
+
+      <a class="contact-card" href={`mailto:${email}`}>
+        <span class="contact-card__label">Email</span>
+        <strong>{email}</strong>
+        <span class="contact-card__hint">適合合作查詢、文件往來或較詳細的項目資料</span>
+      </a>
+
+      <a class="contact-card" href={douyinLink} target="_blank" rel="noopener">
+        <span class="contact-card__label">抖音</span>
+        <strong>關注我們</strong>
+        <span class="contact-card__hint">查看更多裝修案例、設計細節及日常分享</span>
+      </a>
+
+      <a class="contact-card" href={renoteLink} target="_blank" rel="noopener">
+        <span class="contact-card__label">小紅書</span>
+        <strong>查看更多作品</strong>
+        <span class="contact-card__hint">瀏覽更多案例、靈感及項目分享</span>
+      </a>
+    </div>
+  </section>
 </SiteLayout>
+
+<style>
+  .contact {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 72px 20px;
+  }
+
+  .contact__intro {
+    max-width: 720px;
+    margin-bottom: 36px;
+  }
+
+  .eyebrow {
+    margin: 0 0 12px;
+    color: #666;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .contact h1 {
+    margin: 0 0 16px;
+    font-size: clamp(34px, 4vw, 42px);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+  }
+
+  .contact__intro p:not(.eyebrow) {
+    margin: 0;
+    color: #444;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .contact__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .contact-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px;
+    border: 1px solid #e6e6e6;
+    border-radius: 20px;
+    color: inherit;
+    text-decoration: none;
+    background: #fff;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-2px);
+    border-color: #cfcfcf;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.06);
+  }
+
+  .contact-card--primary {
+    background: #0d2b45;
+    color: #fff;
+    border-color: #0d2b45;
+  }
+
+  .contact-card__label {
+    color: inherit;
+    opacity: 0.72;
+    font-size: 14px;
+  }
+
+  .contact-card strong {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .contact-card__hint {
+    color: inherit;
+    opacity: 0.72;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 720px) {
+    .contact {
+      padding: 48px 20px;
+    }
+
+    .contact__cards {
+      grid-template-columns: 1fr;
+    }
+
+    .contact__intro p:not(.eyebrow) {
+      font-size: 16px;
+    }
+  }
+</style>
+```
