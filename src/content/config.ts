@@ -22,9 +22,18 @@ const projects = defineCollection({
     location: z.string().optional(),
     size: z.string().optional(),
     type: z.array(z.string()).default([]),
-    coverImage: z.string().url().optional(),
-    gallery: z.array(z.string().url()).default([]),
-  }),
+    videoUrl: z.string().url().optional(),
+    coverImage: z.string().optional(),
+    gallery: z.array(z.string()).default([]),
+    details: z
+      .array(
+        z.object({
+          title: z.string(),
+          items: z.array(z.string()),
+        })
+      )
+      .default([]),
+      }),
 });
 
 export const collections = { blog, projects };

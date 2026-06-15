@@ -7,6 +7,7 @@ draft: true
 location: "油塘"
 size: "350 呎"
 type: ["住宅", "全屋翻新"]
+videoUrl: "https://www.youtube.com/embed/UkGm1bkKepY"
 coverImage: "https://YOUR-R2-DOMAIN/projects/yau-tong-350/after-living-room.jpg"
 gallery:
   - "https://YOUR-R2-DOMAIN/projects/yau-tong-350/before-living-room.jpg"

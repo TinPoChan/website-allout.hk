@@ -31,7 +31,7 @@ const { Content } = await project.render();
     }}
   />
 
-  <article style="max-width: 920px;">
+  <article style="max-width: 920px; margin: 0 auto;" >
     <h1 style="margin:0 0 10px;">{project.data.title}</h1>
     <div style="color:#999; font-size:13px; margin-bottom:16px;">
       {project.data.date}
@@ -40,17 +40,170 @@ const { Content } = await project.render();
     </div>
 
     {project.data.coverImage && (
-      <img src={project.data.coverImage} alt={project.data.title} style="width:100%; border-radius:14px; border:1px solid #eee; margin: 10px 0 18px;" loading="lazy" />
+      <img
+        src={project.data.coverImage}
+        alt={project.data.title}
+        style="width:100%; height:420px; object-fit:cover; object-position:center; border-radius:14px; border:1px solid #eee; margin:10px 0 18px; display:block;"
+        loading="lazy"
+      />
     )}
 
+        {project.data.videoUrl && (
+      <section class="project-video">
+        <h2>影片導覽</h2>
+        <div class="project-video__frame">
+          <iframe
+            src={project.data.videoUrl}
+            title={`${project.data.title} 影片導覽`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="eager"
+          ></iframe>
+        </div>
+      </section>
+    )}
+
+    <!-- <Content /> -->
+
+    {project.data.details?.length ? (
+  <section class="project-details">
+    <h2>項目重點</h2>
+
+    <div class="project-details__grid">
+      {project.data.details.map((section) => (
+        <article class="project-detail-card">
+          <h3>{section.title}</h3>
+          <ul>
+            {section.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+) : null}
+
     {project.data.gallery?.length ? (
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:10px; margin: 0 0 18px;">
+      <h2>完工圖片</h2>
+      <div class="project-gallery">
         {project.data.gallery.map((url) => (
-          <img src={url} alt={project.data.title} style="width:100%; border-radius:12px; border:1px solid #eee;" loading="lazy" />
+          <a href={url} target="_blank" rel="noopener">
+            <img
+              class="project-gallery__image"
+              src={url}
+              alt={project.data.title}
+              loading="lazy"
+            />
+          </a>
         ))}
       </div>
     ) : null}
 
-    <Content />
+    
   </article>
 </SiteLayout>
+
+<style>
+  .project-gallery {
+  column-count: 3;
+  column-gap: 12px;
+  margin: 0 0 18px;
+}
+
+.project-gallery__image {
+  width: 100%;
+  display: block;
+  break-inside: avoid;
+  margin: 0 0 12px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.project-video {
+  margin: 32px 0;
+}
+
+.project-video h2 {
+  margin: 0 0 14px;
+}
+
+.project-video__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-width: 420px;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid #eee;
+  background: #000;
+  margin: 0 auto;
+}
+
+.project-video__frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.project-details {
+  margin: 36px 0;
+}
+
+.project-details h2 {
+  margin: 0 0 18px;
+  font-size: 1.6rem;
+}
+
+.project-details__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.project-detail-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 22px 24px;
+  background: #fff;
+}
+
+.project-detail-card h3 {
+  margin: 0 0 14px;
+  font-size: 1.25rem;
+}
+
+.project-detail-card ul {
+  margin: 0;
+  padding-left: 1.2em;
+  color: #333;
+  line-height: 1.8;
+}
+
+.project-detail-card li + li {
+  margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+  .project-details__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-card {
+    padding: 18px 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .project-gallery {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-gallery {
+    column-count: 1;
+  }
+}
+</style>
