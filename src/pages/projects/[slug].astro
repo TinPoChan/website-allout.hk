@@ -45,7 +45,10 @@ const { project } = Astro.props;
           class="project-cover"
           src={project.data.coverImage}
           alt={project.data.title}
-          loading="eager"
+          layout="constrained"
+          width={1200}
+          height={675}
+          priority
         />
       )}
 
@@ -93,7 +96,11 @@ const { project } = Astro.props;
               class="project-gallery__image"
               src={image}
               alt={project.data.title}
+              layout="constrained"
+              width={600}
+              height={800}
               loading="lazy"
+              decoding="async"
             />
           </a>
         ))}
