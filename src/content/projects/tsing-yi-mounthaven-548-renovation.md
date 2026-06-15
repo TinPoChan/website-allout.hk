@@ -1,6 +1,5 @@
 ---
 title: "青衣曉峰園全屋裝修｜548呎｜全屋翻新 木系風格"
-slug: "tsing-yi-mounthaven-548-renovation"
 date: "2026-06-15"
 summary: "重整動線 + 收納升級 + 柔和用色，令細單位更實用耐看。"
 draft: false
@@ -8,31 +7,29 @@ location: "青衣曉峰園"
 size: "548 呎"
 type: ["住宅", "全屋翻新"]
 videoUrl: "https://www.youtube.com/embed/UkGm1bkKepY"
-coverImage: "/projects/tsing-yi-mounthaven-548-renovation/IMG_4735.jpg"
+coverImage: "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_4518.jpg"
 gallery:
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_4518.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_4555.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_4578.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_4586.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_4602.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_4618.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_4732.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_4735.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_4743.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_5517.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_8925.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_8932.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_8938.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_9135.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_9147.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_9148.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_9156.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_9158.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_9159.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_9180.jpg"
-  - "/projects/tsing-yi-mounthaven-548-renovation/IMG_9189.jpg"
-
-
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_4518.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_4555.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_4578.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_4586.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_4602.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_4618.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_4732.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_4735.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_4743.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_5517.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_8925.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_8932.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_8938.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_9135.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_9147.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_9148.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_9156.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_9158.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_9159.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_9180.jpg"
+  - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_9189.jpg"
 details:
   - title: "客戶需求"
     items:
@@ -57,5 +54,4 @@ details:
     items:
       - "舊樓水電更新、更改廚房動線"
       - "海外訂購沐浴設備"
-
 ---
