@@ -6,7 +6,8 @@ draft: false
 location: "青衣曉峰園"
 size: "548 呎"
 type: ["住宅", "全屋翻新"]
-videoUrl: "https://www.youtube-nocookie.com/embed/UkGm1bkKepY"
+# videoUrl: "https://www.youtube-nocookie.com/embed/UkGm1bkKepY"
+youtubeId: "UkGm1bkKepY"
 coverImage: "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_4735.jpg"
 gallery:
   - "../../assets/projects/tsing-yi-mounthaven-548-renovation/IMG_4518.jpg"

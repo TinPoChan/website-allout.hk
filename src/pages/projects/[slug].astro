@@ -46,26 +46,38 @@ const { project } = Astro.props;
           src={project.data.coverImage}
           alt={project.data.title}
           layout="constrained"
-          width={1200}
-          height={675}
-          priority
+          width={900}
+          height={600}
+          loading="eager"
+          fetchpriority="high"
         />
       )}
 
-      {project.data.videoUrl && (
+      {project.data.youtubeId && (
         <section class="project-video">
           <h2>影片導覽</h2>
-          <div class="project-video__frame">
-            <iframe
-              src={project.data.videoUrl}
-              title={`${project.data.title} 影片導覽`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              loading="eager"
-            ></iframe>
+
+          <div
+            class="project-video__player"
+            data-youtube-id={project.data.youtubeId}
+            data-video-title={`${project.data.title} 影片導覽`}
+          >
+            <button
+              class="project-video__placeholder"
+              type="button"
+              aria-label={`${project.data.title} 影片導覽`}
+            >
+              <img
+                src={`https://i.ytimg.com/vi/${project.data.youtubeId}/hqdefault.jpg`}
+                alt={`${project.data.title} 影片封面`}
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="project-video__play" aria-hidden="true">▶</span>
+            </button>
           </div>
         </section>
-    )}
+      )}
 
     <!-- <Content /> -->
 
@@ -146,25 +158,6 @@ const { project } = Astro.props;
   margin: 0 0 14px;
 }
 
-.project-video__frame {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  max-width: 420px;
-  overflow: hidden;
-  border-radius: 16px;
-  border: 1px solid #eee;
-  background: #000;
-  margin: 0 auto;
-}
-
-.project-video__frame iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-}
-
 .project-details {
   margin: 36px 0;
 }
@@ -203,6 +196,92 @@ const { project } = Astro.props;
   margin-top: 6px;
 }
 
+.project-video {
+  margin: 32px 0;
+}
+
+.project-video h2 {
+  margin: 0 0 14px;
+}
+
+
+
+.project-video__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.project-video {
+  margin: 32px 0;
+}
+
+.project-video h2 {
+  margin: 0 0 14px;
+}
+
+.project-video__player {
+  width: min(100%, 420px);
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+}
+
+.project-video__placeholder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: #000;
+  cursor: pointer;
+  display: block;
+}
+
+.project-video__placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.92;
+}
+
+.project-video__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.project-video__player :global(iframe) {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  background: #000;
+}
+
 @media (max-width: 768px) {
   .project-details__grid {
     grid-template-columns: 1fr;
@@ -210,6 +289,10 @@ const { project } = Astro.props;
 
   .project-detail-card {
     padding: 18px 20px;
+  }
+
+  .project-cover {
+    height: 260px;
   }
 }
 
@@ -225,3 +308,31 @@ const { project } = Astro.props;
   }
 }
 </style>
+
+<script>
+  const videoPlayers = document.querySelectorAll<HTMLElement>(
+    ".project-video__player"
+  );
+
+  videoPlayers.forEach((player) => {
+    const button = player.querySelector<HTMLButtonElement>(
+      ".project-video__placeholder"
+    );
+
+    button?.addEventListener("click", () => {
+      const youtubeId = player.dataset.youtubeId;
+      const title = player.dataset.videoTitle || "影片導覽";
+
+      if (!youtubeId) return;
+
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0`;
+      iframe.title = title;
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.allowFullscreen = true;
+
+      player.replaceChildren(iframe);
+    });
+  });
+</script>

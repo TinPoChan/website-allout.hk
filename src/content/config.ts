@@ -28,7 +28,8 @@ const projects = defineCollection({
       location: z.string().optional(),
       size: z.string().optional(),
       type: z.array(z.string()).default([]),
-      videoUrl: z.string().url().optional(),
+      // videoUrl: z.string().url().optional(),
+      youtubeId: z.string().optional(),
       coverImage: image().optional(),
       gallery: z.array(image()).default([]),
       details: z
