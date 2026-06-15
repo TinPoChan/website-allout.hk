@@ -270,6 +270,11 @@ img {
   border-radius: var(--radius);
   border: 1px solid var(--border);
 }
+@media (max-width: 820px) {
+  .hero__media {
+    display: none;
+  }
+}
 
 /* section header */
 .sectionHead{
@@ -366,7 +371,7 @@ img {
 }
 .ctaBar__btn:hover{ filter: brightness(1.05); color: #fff; }
 
-@media (max-width: 900px){
+@media (max-width: 820px){
   .hero__grid{ grid-template-columns: 1fr; }
   .grid4{ grid-template-columns: repeat(2, minmax(0,1fr)); }
   .grid3{ grid-template-columns: 1fr; }

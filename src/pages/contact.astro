@@ -1,14 +1,14 @@
 ---
 import SiteLayout from "../components/SiteLayout.astro";
 
-
 const phoneDisplay = "5393 6777";
 const waLink = "https://wa.me/85253936777";
-const email = "lam@allout.hk";
+const email = "info@allout.hk";
 
 // TODO: 換成你哋真實連結
-const douyinLink = "https://v.douyin.com/ygRU8fyS_Sk/";
-const renoteLink = "https://www.xiaohongshu.com/user/profile/58f2f7de82ec39403133d4ac";
+const facebookLink = "https://www.facebook.com/alloutdesign";
+const renoteLink =
+  "https://www.xiaohongshu.com/user/profile/58f2f7de82ec39403133d4ac";
 ---
 
 <SiteLayout title="聯絡 | ALL OUT DESIGN" description="查詢報價與聯絡方式。">
@@ -22,27 +22,136 @@ const renoteLink = "https://www.xiaohongshu.com/user/profile/58f2f7de82ec3940313
       </p>
     </div>
 
+    <!--Svg License: All icons on this site can be used for personal, commercial, and client projects without attribution - uxwing.com -->
     <div class="contact__cards">
-      <a class="contact-card contact-card--primary" href={waLink} target="_blank" rel="noopener">
-        <span class="contact-card__label">WhatsApp 查詢</span>
+      <a
+        class="contact-card contact-card--primary"
+        href={waLink}
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="contact-card__label">
+          WhatsApp 查詢
+          <span class="contact-card__icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 241.19">
+              <path
+                d="M205,35.05A118.61,118.61,0,0,0,120.46,0C54.6,0,1,53.61,1,119.51a119.5,119.5,0,0,0,16,59.74L0,241.19l63.36-16.63a119.43,119.43,0,0,0,57.08,14.57h0A119.54,119.54,0,0,0,205,35.07v0ZM120.5,219A99.18,99.18,0,0,1,69.91,205.1l-3.64-2.17-37.6,9.85,10-36.65-2.35-3.76A99.37,99.37,0,0,1,190.79,49.27,99.43,99.43,0,0,1,120.49,219ZM175,144.54c-3-1.51-17.67-8.71-20.39-9.71s-4.72-1.51-6.75,1.51-7.72,9.71-9.46,11.72-3.49,2.27-6.45.76-12.63-4.66-24-14.84A91.1,91.1,0,0,1,91.25,113.3c-1.75-3-.19-4.61,1.33-6.07s3-3.48,4.47-5.23a19.65,19.65,0,0,0,3-5,5.51,5.51,0,0,0-.24-5.23C99,90.27,93,75.57,90.6,69.58s-4.89-5-6.73-5.14-3.73-.09-5.7-.09a11,11,0,0,0-8,3.73C67.48,71.05,59.75,78.3,59.75,93s10.69,28.88,12.19,30.9S93,156.07,123,169c7.12,3.06,12.68,4.9,17,6.32a41.18,41.18,0,0,0,18.8,1.17c5.74-.84,17.66-7.21,20.17-14.18s2.5-13,1.75-14.19-2.69-2.06-5.7-3.59l0,0Z"
+              ></path>
+            </svg>
+          </span>
+        </span>
+
         <strong>{phoneDisplay}</strong>
-        <span class="contact-card__hint">最適合查詢報價、預約睇位或初步了解裝修流程</span>
+        <span class="contact-card__hint"
+          >最適合查詢報價、預約睇位或初步了解裝修流程</span
+        >
       </a>
 
       <a class="contact-card" href={`mailto:${email}`}>
-        <span class="contact-card__label">Email</span>
+        <span class="contact-card__label">
+          Email
+          <span class="contact-card__icon" aria-hidden="true">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 117.88 122.88"
+            >
+              <defs>
+                <style>
+                  .cls-1 { fill: #4d8bba; }
+                  .cls-2 { fill: #9fd9f1; }
+                  .cls-3,
+                  .cls-5 { fill: #fff; }
+                  .cls-4 { fill: #00a912; }
+                  .cls-4,
+                  .cls-5 { fill-rule: evenodd; }
+                </style>
+              </defs>
+
+              <path
+                class="cls-1"
+                d="M110.44,41.57a3.59,3.59,0,0,1,2.43-.93,4,4,0,0,1,2.06.6,5.09,5.09,0,0,1,1.26,1.07,7.06,7.06,0,0,1,1.69,4.26v70.64a5.71,5.71,0,0,1-1.66,4h0a5.67,5.67,0,0,1-4,1.66H5.67a5.71,5.71,0,0,1-4-1.66h0a5.62,5.62,0,0,1-1.66-4V46.57a7.1,7.1,0,0,1,1.73-4.32,5.5,5.5,0,0,1,1.26-1,4,4,0,0,1,2-.58,3.59,3.59,0,0,1,2,.57V2.74A2.74,2.74,0,0,1,9.7,0H78.9A2.71,2.71,0,0,1,81,1l28.65,29.59a2.71,2.71,0,0,1,.78,1.9h0v.79c0,.11,0,.22,0,.34s0,.22,0,.33v7.63Z"
+              />
+              <polygon
+                class="cls-2"
+                points="112.39 109.75 112.39 47.12 76.6 78.39 112.39 109.75"
+              />
+              <polygon
+                class="cls-2"
+                points="40.79 78.69 5.49 47.15 5.49 109.63 40.79 78.69"
+              />
+              <path
+                class="cls-2"
+                d="M56.52,92.74,44.9,82.36,5.49,116.9v.31a.17.17,0,0,0,0,.13h0a.22.22,0,0,0,.13,0H112.21a.22.22,0,0,0,.13,0h0a.17.17,0,0,0,0-.13V117L72.45,82,60.15,92.76h0a2.73,2.73,0,0,1-3.62,0Z"
+              />
+              <path
+                class="cls-3"
+                d="M102.31,30.86,78,5.74V5.49H12.44V46h0L46.66,76.6l.15.14L58.36,87.06,105,46.36v-10l-2.64-5.49Z"
+              />
+              <path
+                class="cls-4"
+                d="M58.7,13.35A25.26,25.26,0,1,1,33.44,38.61,25.26,25.26,0,0,1,58.7,13.35Z"
+              />
+              <path
+                class="cls-5"
+                d="M50.86,34.6l4.47,4.22L65.91,28.1c.88-.89,1.43-1.6,2.51-.49l3.51,3.59c1.15,1.14,1.09,1.81,0,2.87L57.34,48.43c-2.29,2.25-1.89,2.39-4.22.08L45,40.39a1,1,0,0,1,.1-1.58l4.07-4.22c.62-.65,1.11-.59,1.74,0Z"
+              />
+            </svg>
+          </span>
+        </span>
+
         <strong>{email}</strong>
-        <span class="contact-card__hint">適合合作查詢、文件往來或較詳細的項目資料</span>
+        <span class="contact-card__hint">
+          適合合作查詢、文件往來或較詳細的項目資料
+        </span>
       </a>
 
-      <a class="contact-card" href={douyinLink} target="_blank" rel="noopener">
-        <span class="contact-card__label">抖音</span>
+      <a
+        class="contact-card"
+        href={facebookLink}
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="contact-card__label">
+          Facebook
+          <span class="contact-card__icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 509 509">
+              <g fill-rule="nonzero">
+                <path
+                  fill="#0866FF"
+                  d="M509 254.5C509 113.94 395.06 0 254.5 0S0 113.94 0 254.5C0 373.86 82.17 474 193.02 501.51V332.27h-52.48V254.5h52.48v-33.51c0-86.63 39.2-126.78 124.24-126.78 16.13 0 43.95 3.17 55.33 6.33v70.5c-6.01-.63-16.44-.95-29.4-.95-41.73 0-57.86 15.81-57.86 56.91v27.5h83.13l-14.28 77.77h-68.85v174.87C411.35 491.92 509 384.62 509 254.5z"
+                ></path>
+                <path
+                  fill="#fff"
+                  d="M354.18 332.27l14.28-77.77h-83.13V227c0-41.1 16.13-56.91 57.86-56.91 12.96 0 23.39.32 29.4.95v-70.5c-11.38-3.16-39.2-6.33-55.33-6.33-85.04 0-124.24 40.16-124.24 126.78v33.51h-52.48v77.77h52.48v169.24c19.69 4.88 40.28 7.49 61.48 7.49 10.44 0 20.72-.64 30.83-1.86V332.27h68.85z"
+                ></path>
+              </g>
+            </svg>
+          </span>
+        </span>
+
         <strong>關注我們</strong>
-        <span class="contact-card__hint">查看更多裝修案例、設計細節及日常分享</span>
+        <span class="contact-card__hint">
+          查看更多裝修案例、設計細節及日常分享
+        </span>
       </a>
 
       <a class="contact-card" href={renoteLink} target="_blank" rel="noopener">
-        <span class="contact-card__label">小紅書</span>
+        <span class="contact-card__label">
+          小紅書
+          <span class="contact-card__icon" aria-hidden="true">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 446 511.46"
+            >
+              <path
+                fill="#F10100"
+                fill-rule="nonzero"
+                d="M446 511.46H265.96l-67.09-152.21h-35.2v152.21H0V0h257.79c117.3 0 175.94 59.73 175.94 179.22 0 81.83-25.37 135.84-76.11 162.03L446 511.46zM163.67 130.93v102.3h37.65c19.64 0 33.96-2.05 42.96-6.14s13.51-13.5 13.51-28.23V165.3c0-14.73-4.51-24.14-13.51-28.24-9-4.08-23.32-6.13-42.96-6.13h-37.65z"
+              />
+            </svg>
+          </span>
+        </span>
+
         <strong>查看更多作品</strong>
         <span class="contact-card__hint">瀏覽更多案例、靈感及項目分享</span>
       </a>
@@ -100,7 +209,10 @@ const renoteLink = "https://www.xiaohongshu.com/user/profile/58f2f7de82ec3940313
     color: inherit;
     text-decoration: none;
     background: #fff;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
   }
 
   .contact-card:hover {
@@ -116,9 +228,27 @@ const renoteLink = "https://www.xiaohongshu.com/user/profile/58f2f7de82ec3940313
   }
 
   .contact-card__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     color: inherit;
     opacity: 0.72;
     font-size: 14px;
+  }
+
+  .contact-card__icon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    transform: translateY(-2px); // 微調icon位置，使其與文字更好地對齊
+  }
+
+  .contact-card__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    fill: #25d366;
   }
 
   .contact-card strong {
