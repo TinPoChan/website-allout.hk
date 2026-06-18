@@ -9,17 +9,17 @@ const nav = [
 const { currentPath = "/" } = Astro.props;
 ---
 
-<header style="border-bottom: 1px solid #e5e5e5;">
-  <div style="max-width: 1080px; margin: 0 auto; padding: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
-    <a href="/" style="text-decoration: none; color: inherit; font-weight: 900;">
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-header__brand">
       ALL OUT DESIGN
     </a>
 
-    <nav style="display: flex; gap: 14px; flex-wrap: wrap;">
+    <nav class="site-nav" aria-label="Main navigation">
       {nav.map((item) => (
         <a
           href={item.href}
-          style={`text-decoration:none; color: ${currentPath === item.href ? "black" : "#444"}; font-weight:${currentPath === item.href ? "700" : "500"};`}
+          class:list={["site-nav__link", currentPath === item.href && "is-active"]}
         >
           {item.label}
         </a>
