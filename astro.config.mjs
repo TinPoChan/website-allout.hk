@@ -1,12 +1,19 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://www.allout.hk", // 
+  site: "https://www.allout.hk",
+
+  adapter: cloudflare({
+    imageService: "compile",
+  }),
+
   image: {
     domains: ["i.ytimg.com"],
   },
+
   integrations: [sitemap()],
 });
