@@ -75,7 +75,16 @@ const { project } = Astro.props;
                 loading="eager"
                 decoding="async"
               />
-              <span class="project-video__play" aria-hidden="true">▶</span>
+              <span class="project-video__brand" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    fill-rule="evenodd"
+                    d="M21.7 8.037a4.26 4.26 0 0 0-.789-1.964 2.84 2.84 0 0 0-1.984-.839c-2.767-.2-6.926-.2-6.926-.2s-4.157 0-6.928.2a2.836 2.836 0 0 0-1.983.839 4.225 4.225 0 0 0-.79 1.965 30.146 30.146 0 0 0-.2 3.206v1.5a30.12 30.12 0 0 0 .2 3.206c.094.712.364 1.39.784 1.972.604.536 1.38.837 2.187.848 1.583.151 6.731.2 6.731.2s4.161 0 6.928-.2a2.844 2.844 0 0 0 1.985-.84 4.27 4.27 0 0 0 .787-1.965 30.12 30.12 0 0 0 .2-3.206v-1.516a30.672 30.672 0 0 0-.202-3.206Zm-11.692 6.554v-5.62l5.4 2.819-5.4 2.801Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </span>
+              <span class="project-video__play" aria-hidden="true" />
             </button>
           </div>
         </section>
@@ -238,6 +247,42 @@ const { project } = Astro.props;
   line-height: 1;
 }
 
+.project-video__placeholder::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(226, 59, 53, 0.88);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.24);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M21.7 8.037a4.26 4.26 0 0 0-.789-1.964 2.84 2.84 0 0 0-1.984-.839c-2.767-.2-6.926-.2-6.926-.2s-4.157 0-6.928.2a2.836 2.836 0 0 0-1.983.839 4.225 4.225 0 0 0-.79 1.965 30.146 30.146 0 0 0-.2 3.206v1.5a30.12 30.12 0 0 0 .2 3.206c.094.712.364 1.39.784 1.972.604.536 1.38.837 2.187.848 1.583.151 6.731.2 6.731.2s4.161 0 6.928-.2a2.844 2.844 0 0 0 1.985-.84 4.27 4.27 0 0 0 .787-1.965 30.12 30.12 0 0 0 .2-3.206v-1.516a30.672 30.672 0 0 0-.202-3.206Zm-11.692 6.554v-5.62l5.4 2.819-5.4 2.801Z' clip-rule='evenodd'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M21.7 8.037a4.26 4.26 0 0 0-.789-1.964 2.84 2.84 0 0 0-1.984-.839c-2.767-.2-6.926-.2-6.926-.2s-4.157 0-6.928.2a2.836 2.836 0 0 0-1.983.839 4.225 4.225 0 0 0-.79 1.965 30.146 30.146 0 0 0-.2 3.206v1.5a30.12 30.12 0 0 0 .2 3.206c.094.712.364 1.39.784 1.972.604.536 1.38.837 2.187.848 1.583.151 6.731.2 6.731.2s4.161 0 6.928-.2a2.844 2.844 0 0 0 1.985-.84 4.27 4.27 0 0 0 .787-1.965 30.12 30.12 0 0 0 .2-3.206v-1.516a30.672 30.672 0 0 0-.202-3.206Zm-11.692 6.554v-5.62l5.4 2.819-5.4 2.801Z' clip-rule='evenodd'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.project-video__play {
+  background: #e23b35;
+  color: #fff;
+  font-size: 0;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.26);
+}
+
+.project-video__play::before {
+  content: "";
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 23px solid #fff;
+}
+
+.project-video__placeholder:hover .project-video__play {
+  background: rgba(201, 47, 42, 0.96);
+}
+
 .project-video {
   margin: 32px 0;
 }
@@ -274,6 +319,29 @@ const { project } = Astro.props;
   opacity: 0.92;
 }
 
+.project-video__placeholder::before {
+  display: none;
+}
+
+.project-video__brand {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  color: rgba(226, 59, 53, 0.88);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.24));
+}
+
+.project-video__brand svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
 .project-video__play {
   position: absolute;
   left: 50%;
@@ -288,6 +356,27 @@ const { project } = Astro.props;
   color: #fff;
   font-size: 34px;
   line-height: 1;
+}
+
+.project-video__play {
+  background: rgba(226, 59, 53, 0.88) !important;
+  color: transparent;
+  font-size: 0 !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.26);
+}
+
+.project-video__play::before {
+  content: "";
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 23px solid #fff;
+}
+
+.project-video__placeholder:hover .project-video__play {
+  background: rgba(201, 47, 42, 0.96) !important;
 }
 
 .project-video__player :global(iframe) {
