@@ -1,6 +1,7 @@
 ---
 import SiteLayout from "../components/SiteLayout.astro";
 import JsonLd from "../components/JsonLd.astro";
+import { Image } from "astro:assets";
 import MountHavenCover from "../assets/MountHavenCover.jpeg";
 import CheungTungEstateCover from "../assets/CheungTungEstateCover.jpeg";
 import OnWahCourtCover from "../assets/OnWahCourtCover.png";
@@ -14,19 +15,19 @@ const featured = [
   {
     title: "青衣曉峰園全屋裝修",
     subtitle: "青衣住宅｜548呎｜木系風格",
-    image: MountHavenCover.src,
+    image: MountHavenCover,
     href: "/projects/tsing-yi-mounthaven-548-renovation",
   },
   {
     title: "東涌翔東邨全屋裝修",
     subtitle: "公共屋邨｜327呎｜現代簡約",
-    image: CheungTungEstateCover.src,
+    image: CheungTungEstateCover,
     href: "/projects/TungChung-CheungTungEstate-327-renovation",
   },
   {
     title: "觀塘安樺苑全屋裝修",
     subtitle: "居屋屋苑｜408呎｜溫馨簡約",
-    image: OnWahCourtCover.src,
+    image: OnWahCourtCover,
     href: "/projects/KwunTong-OnWahCourt-408-renovation",
   },
 ];
@@ -104,10 +105,11 @@ const services = [
       </div>
 
       <div class="hero__media">
-        <img
-          src={Home.src}
+        <Image
+          src={Home}
           alt="ALL OUT DESIGN 室內設計與裝修工程"
           loading="eager"
+          decoding="async"
         />
       </div>
     </div>
@@ -124,7 +126,15 @@ const services = [
       <div class="grid3">
         {featured.map((p) => (
           <a class="projectCard" href={p.href}>
-            <img class="projectCard__img" src={p.image} alt={p.title} loading="lazy" />
+            <Image
+              class="projectCard__img"
+              src={p.image}
+              alt={p.title}
+              width={360}
+              height={360}
+              loading="eager"
+              decoding="async"
+            />
             <div class="projectCard__body">
               <div class="projectCard__title">{p.title}</div>
               <div class="projectCard__sub muted">{p.subtitle}</div>
