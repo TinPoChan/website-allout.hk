@@ -45,9 +45,6 @@ const { project } = Astro.props;
           class="project-cover"
           src={project.data.coverImage}
           alt={project.data.title}
-          layout="constrained"
-          width={900}
-          height={600}
           loading="eager"
           fetchpriority="high"
         />
@@ -70,8 +67,7 @@ const { project } = Astro.props;
               <Image
                 src={`https://i.ytimg.com/vi/${project.data.youtubeId}/maxresdefault.jpg`}
                 alt={`${project.data.title} 影片封面`}
-                width={640}
-                height={480}
+                inferSize
                 loading="eager"
                 decoding="async"
               />
@@ -122,8 +118,6 @@ const { project } = Astro.props;
                 class="project-gallery__image"
                 src={image}
                 alt={project.data.title}
-                width={600}
-                height={800}
                 loading="lazy"
                 decoding="async"
               />

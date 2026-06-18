@@ -47,9 +47,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).to
           class="blog-post__cover"
           src={post.data.coverImage}
           alt={post.data.title}
-          layout="constrained"
-          width={900}
-          height={600}
           loading="eager"
           fetchpriority="high"
         />
