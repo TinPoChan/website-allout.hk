@@ -1,16 +1,21 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
-const blog = defineCollection({
-  type: "content",
-  schema: z.object({
-    title: z.string(),
-    date: z.string(), // 先用 string，之後可以改 z.date()
-    summary: z.string(),
-    draft: z.boolean().default(false),
-    tags: z.array(z.string()).default([]),
-    coverImage: z.string().url().optional(),
+const blogs = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/blogs",
+    generateId: ({ entry }) => entry.replace(/\.md$/, ""),
   }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      date: z.string(),
+      summary: z.string(),
+      draft: z.boolean().default(false),
+      tags: z.array(z.string()).default([]),
+      coverImage: image().optional(),
+    }),
 });
 
 const projects = defineCollection({
@@ -43,4 +48,4 @@ const projects = defineCollection({
     }),
 });
 
-export const collections = { blog, projects };
+export const collections = { blogs, projects };
