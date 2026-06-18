@@ -8,43 +8,49 @@ const posts = (await getCollection("blogs"))
   .sort((a, b) => b.data.date.localeCompare(a.data.date));
 ---
 
-<SiteLayout title="專欄 | ALL OUT DESIGN" description="裝修設計與工程知識專欄。">
-  <h1 style="margin:0 0 10px;">專欄</h1>
-  <p style="color:#666; margin:0;">裝修設計與工程知識分享</p>
+<SiteLayout title="專欄 | ALL OUT DESIGN" description="裝修設計與工程知識分享。">
+  <section class="page-shell">
+    <div class="container">
+      <header class="page-hero">
+        <p class="eyebrow">Blogs</p>
+        <h1>專欄</h1>
+        <p>裝修設計與工程知識分享</p>
+      </header>
 
-  <div class="blog-list">
-    {posts.map((p) => (
-      <a href={`/blogs/${p.id}`} class="blog-card">
-        {p.data.coverImage && (
-          <Image
-            src={p.data.coverImage}
-            alt={`${p.data.title} 封面圖片`}
-            class="blog-card__image"
-            width={360}
-            height={240}
-            loading="eager"
-            decoding="async"
-          />
-        )}
+      <div class="blog-list">
+        {posts.map((p) => (
+          <a href={`/blogs/${p.id}`} class="blog-card">
+            {p.data.coverImage && (
+              <Image
+                src={p.data.coverImage}
+                alt={`${p.data.title} 封面圖片`}
+                class="blog-card__image"
+                width={360}
+                height={240}
+                loading="eager"
+                decoding="async"
+              />
+            )}
 
-        <div class="blog-card__content">
-          <div class="blog-card__title">{p.data.title}</div>
-          <div class="blog-card__summary">{p.data.summary}</div>
-          <div class="blog-card__meta">
-            {p.data.date}
-            {p.data.tags?.length ? ` · ${p.data.tags.join("、")}` : ""}
-          </div>
-        </div>
-      </a>
-    ))}
-  </div>
+            <div class="blog-card__content">
+              <div class="blog-card__title">{p.data.title}</div>
+              <div class="blog-card__summary">{p.data.summary}</div>
+              <div class="blog-card__meta">
+                {p.data.date}
+                {p.data.tags?.length ? ` · ${p.data.tags.join("、")}` : ""}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 </SiteLayout>
 
 <style>
   .blog-list {
     display: grid;
     gap: 16px;
-    margin-top: 20px;
   }
 
   .blog-card {

@@ -32,7 +32,7 @@ const { project } = Astro.props;
     }}
   />
 
-  <article style="max-width: 920px; margin: 0 auto;" >
+  <article class="project-article page-shell">
     <h1 style="margin:0 0 10px;">{project.data.title}</h1>
     <div style="color:#999; font-size:13px; margin-bottom:16px;">
       {project.data.date}
@@ -127,6 +127,11 @@ const { project } = Astro.props;
 </SiteLayout>
 
 <style>
+.project-article {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
 .project-gallery {
   columns: 3 260px;
   column-gap: 12px;

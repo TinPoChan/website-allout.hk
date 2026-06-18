@@ -8,41 +8,47 @@ const projects = (await getCollection("projects"))
   .sort((a, b) => b.data.date.localeCompare(a.data.date));
 ---
 
-<SiteLayout title="作品集 | ALL OUT DESIGN" description="裝修設計案例與工程作品集。">
-  <h1 style="margin:0 0 10px;">作品集</h1>
+<SiteLayout title="作品集 | ALL OUT DESIGN" description="住宅室內設計案例及裝修工程作品。">
+  <section class="page-shell">
+    <div class="container">
+      <header class="page-hero">
+        <p class="eyebrow">Projects</p>
+        <h1>作品集</h1>
+      </header>
 
-  <div class="project-list">
-    {projects.map((p) => (
-      <a href={`/projects/${p.id}`} class="project-card">
-        {p.data.coverImage && (
-          <Image
-            src={p.data.coverImage}
-            alt={`${p.data.title} 封面圖片`}
-            class="project-card__image"
-            width={360}
-            height={240}
-            loading="eager"
-            decoding="async"
-          />
-        )}
+      <div class="project-list">
+        {projects.map((p) => (
+          <a href={`/projects/${p.id}`} class="project-card">
+            {p.data.coverImage && (
+              <Image
+                src={p.data.coverImage}
+                alt={`${p.data.title} 封面圖片`}
+                class="project-card__image"
+                width={360}
+                height={240}
+                loading="eager"
+                decoding="async"
+              />
+            )}
 
-        <div class="project-card__content">
-          <div class="project-card__title">{p.data.title}</div>
-          <div class="project-card__summary">{p.data.summary}</div>
-          <div class="project-card__meta">
-            {p.data.date}{p.data.location ? ` · ${p.data.location}` : ""}
-          </div>
-        </div>
-      </a>
-    ))}
-  </div>
+            <div class="project-card__content">
+              <div class="project-card__title">{p.data.title}</div>
+              <div class="project-card__summary">{p.data.summary}</div>
+              <div class="project-card__meta">
+                {p.data.date}{p.data.location ? ` · ${p.data.location}` : ""}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 </SiteLayout>
 
 <style>
   .project-list {
     display: grid;
     gap: 16px;
-    margin-top: 20px;
   }
 
   .project-card {

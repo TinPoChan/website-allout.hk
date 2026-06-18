@@ -12,15 +12,18 @@ const renoteLink =
 ---
 
 <SiteLayout title="聯絡 | ALL OUT DESIGN" description="查詢報價與聯絡方式。">
-  <section class="contact">
-    <div class="contact__intro">
-      <p class="eyebrow">Contact</p>
-      <h1>聯絡我們</h1>
+  <section class="contact page-shell">
+    <div class="container">
+      <div class="contact__intro">
+        <header class="contact__header page-hero">
+          <p class="eyebrow">Contact</p>
+          <h1>聯絡我們</h1>
+      </header>
       <p>
         如果你正計劃裝修、想了解報價，或者想先傾吓單位情況，
         歡迎用以下方式聯絡我哋。我哋會盡快回覆你。
       </p>
-    </div>
+      </div>
 
     <!--Svg License: All icons on this site can be used for personal, commercial, and client projects without attribution - uxwing.com -->
     <div class="contact__cards">
@@ -155,38 +158,27 @@ const renoteLink =
         <strong>查看更多作品</strong>
         <span class="contact-card__hint">瀏覽更多案例、靈感及項目分享</span>
       </a>
+      
+    </div>
     </div>
   </section>
 </SiteLayout>
 
 <style>
   .contact {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 72px 20px;
+    padding-bottom: var(--space-6);
   }
 
   .contact__intro {
     max-width: 720px;
-    margin-bottom: 36px;
+    margin-bottom: var(--space-5);
   }
 
-  .eyebrow {
-    margin: 0 0 12px;
-    color: #666;
-    font-size: 14px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  .contact__header {
+    margin-bottom: var(--space-3);
   }
 
-  .contact h1 {
-    margin: 0 0 16px;
-    font-size: clamp(34px, 4vw, 42px);
-    line-height: 1.1;
-    letter-spacing: -0.04em;
-  }
-
-  .contact__intro p:not(.eyebrow) {
+  .contact__intro > p {
     margin: 0;
     color: #444;
     font-size: 18px;
@@ -263,16 +255,8 @@ const renoteLink =
   }
 
   @media (max-width: 720px) {
-    .contact {
-      padding: 48px 20px;
-    }
-
     .contact__cards {
       grid-template-columns: 1fr;
-    }
-
-    .contact__intro p:not(.eyebrow) {
-      font-size: 16px;
     }
   }
 </style>
