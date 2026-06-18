@@ -5,5 +5,8 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.allout.hk", // 
+  image: {
+    domains: ["i.ytimg.com"],
+  },
   integrations: [sitemap()],
 });

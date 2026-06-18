@@ -67,10 +67,12 @@ const { project } = Astro.props;
               type="button"
               aria-label={`${project.data.title} 影片導覽`}
             >
-              <img
-                src={`https://i.ytimg.com/vi/${project.data.youtubeId}/sddefault.jpg`}
+              <Image
+                src={`https://i.ytimg.com/vi/${project.data.youtubeId}/maxresdefault.jpg`}
                 alt={`${project.data.title} 影片封面`}
-                loading="lazy"
+                width={640}
+                height={480}
+                loading="eager"
                 decoding="async"
               />
               <span class="project-video__play" aria-hidden="true">▶</span>
