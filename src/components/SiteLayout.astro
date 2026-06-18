@@ -15,7 +15,7 @@ const canonicalUrl = Astro.site
 <BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage={ogImage}>
   <Navbar currentPath={currentPath} />
 
-  <main style="max-width: 1080px; margin: 0 auto; padding: 28px 16px;">
+  <main class="site-main">
     <slot />
   </main>
 
