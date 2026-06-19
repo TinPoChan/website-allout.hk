@@ -1,6 +1,33 @@
-<footer style="border-top: 1px solid #e5e5e5; margin-top: 48px;">
-  <div style="max-width: 1080px; margin: 0 auto; padding: 20px 16px; color: #666; font-size: 14px;">
+---
+const { flush = false } = Astro.props;
+---
+
+<footer class:list={["site-footer", { "site-footer--flush": flush }]}>
+  <div class="site-footer__inner">
     <div>© {new Date().getFullYear()} ALL OUT DESIGN LIMITED</div>
-    <div style="margin-top: 6px;">Hong Kong · Renovation & Interior Design</div>
+    <div class="site-footer__tagline">Hong Kong · Renovation & Interior Design</div>
   </div>
 </footer>
+
+<style>
+  .site-footer {
+    margin-top: 48px;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .site-footer--flush {
+    margin-top: 0;
+  }
+
+  .site-footer__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 20px 16px;
+    color: #666;
+    font-size: 14px;
+  }
+
+  .site-footer__tagline {
+    margin-top: 6px;
+  }
+</style>
