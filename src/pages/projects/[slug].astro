@@ -2,7 +2,7 @@
 import SiteLayout from "../../components/SiteLayout.astro";
 import { getCollection } from "astro:content";
 import JsonLd from "../../components/JsonLd.astro";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects", ({ data }) => !data.draft);
@@ -14,6 +14,12 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const galleryImages = await Promise.all(
+  project.data.gallery.map(async (image) => ({
+    image,
+    href: (await getImage({ src: image, format: "webp" })).src,
+  }))
+);
 // const { Content } = await project.render();
 ---
 
@@ -112,8 +118,8 @@ const { project } = Astro.props;
         <h2>完工圖片</h2>
 
         <div class="project-gallery">
-          {project.data.gallery.map((image) => (
-            <a class="project-gallery__item" href={image.src} target="_blank" rel="noopener">
+          {galleryImages.map(({ image, href }) => (
+            <a class="project-gallery__item" href={href} target="_blank" rel="noopener">
               <Image
                 class="project-gallery__image"
                 src={image}
@@ -413,6 +419,11 @@ const { project } = Astro.props;
 @media (max-width: 600px) {
   .project-gallery {
     columns: 1;
+  }
+
+  .project-gallery__item {
+    pointer-events: none;
+    cursor: default;
   }
 }
 </style>
