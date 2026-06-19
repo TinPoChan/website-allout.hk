@@ -5,6 +5,9 @@
  * - data: object（對應類型所需資料）
  */
 const { type, data } = Astro.props;
+const absoluteImage = data?.coverImage
+  ? new URL(data.coverImage, Astro.site ?? Astro.url.origin).toString()
+  : undefined;
 
 let schema = null;
 
@@ -42,7 +45,7 @@ if (type === "blog") {
       "@type": "WebPage",
       "@id": data.canonical,
     },
-    image: data.coverImage ? [data.coverImage] : undefined,
+    image: absoluteImage ? [absoluteImage] : undefined,
   };
 }
 
@@ -60,13 +63,14 @@ if (type === "project") {
       "@type": "WebPage",
       "@id": data.canonical,
     },
-    image: data.coverImage ? [data.coverImage] : undefined,
+    image: absoluteImage ? [absoluteImage] : undefined,
   };
 }
 ---
 
 {schema && (
   <script
+    is:inline
     type="application/ld+json"
     set:html={JSON.stringify(schema)}
   />

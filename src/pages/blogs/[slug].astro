@@ -22,6 +22,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).to
 <SiteLayout
   title={`${post.data.title} | ALL OUT DESIGN`}
   description={post.data.summary}
+  ogImage={post.data.coverImage?.src}
 >
   <JsonLd
     type="blog"
@@ -29,6 +30,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).to
       title: post.data.title,
       summary: post.data.summary,
       date: post.data.date,
+      coverImage: post.data.coverImage?.src,
       canonical,
     }}
   />

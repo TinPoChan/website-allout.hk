@@ -10,9 +10,12 @@ const currentPath = Astro.url.pathname;
 const canonicalUrl = Astro.site
   ? new URL(currentPath, Astro.site).toString()
   : undefined;
+const absoluteOgImage = ogImage
+  ? new URL(ogImage, Astro.site ?? Astro.url.origin).toString()
+  : undefined;
 ---
 
-<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage={ogImage}>
+<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage={absoluteOgImage}>
   <Navbar currentPath={currentPath} />
 
   <main class="site-main">
