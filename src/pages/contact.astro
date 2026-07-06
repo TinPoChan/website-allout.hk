@@ -4,6 +4,7 @@ import SiteLayout from "../components/SiteLayout.astro";
 const phoneDisplay = "5393 6777";
 const waLink = "https://wa.me/85253936777";
 const email = "info@allout.hk";
+const address = "土瓜灣環凱廣場209室";
 
 // TODO: 換成你哋真實連結
 const facebookLink = "https://www.facebook.com/alloutdesign";
@@ -158,6 +159,15 @@ const renoteLink =
         <strong>查看更多作品</strong>
         <span class="contact-card__hint">瀏覽更多案例、靈感及項目分享</span>
       </a>
+
+      <div
+        class="contact-card contact-card--full contact-card--address"
+        style="grid-column: 1 / -1; border-color: #c9d8e3; border-left: 6px solid #2f6f8f; background: #f3f8fb;"
+      >
+        <span class="contact-card__label" style="color: #24536b; opacity: 1; font-weight: 700;">地址</span>
+        <strong>{address}</strong>
+        <span class="contact-card__hint">歡迎參觀，敬請預約。</span>
+      </div>
       
     </div>
     </div>
@@ -217,6 +227,22 @@ const renoteLink =
     background: #0d2b45;
     color: #fff;
     border-color: #0d2b45;
+  }
+
+  .contact-card--full {
+    grid-column: 1 / -1;
+  }
+
+  .contact-card--address {
+    border-color: #c9d8e3;
+    border-left: 6px solid #2f6f8f;
+    background: #f3f8fb;
+  }
+
+  .contact-card--address .contact-card__label {
+    color: #24536b;
+    opacity: 1;
+    font-weight: 700;
   }
 
   .contact-card__label {
