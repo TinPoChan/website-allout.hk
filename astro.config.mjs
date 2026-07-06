@@ -6,9 +6,11 @@ import cloudflare from "@astrojs/cloudflare";
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.allout.hk",
+  output: "server",
 
   adapter: cloudflare({
     imageService: "compile",
+    prerenderEnvironment: "node",
   }),
 
   image: {
