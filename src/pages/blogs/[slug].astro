@@ -4,6 +4,8 @@ import JsonLd from "../../components/JsonLd.astro";
 import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const posts = await getCollection("blogs", (entry) => !entry.data.draft);
 
