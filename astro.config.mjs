@@ -5,7 +5,7 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://www.allout.hk",
+  site: "https://allout.hk",
   output: "server",
 
   adapter: cloudflare({
