@@ -74,12 +74,19 @@ if (type === "project") {
     image: absoluteImage ? [absoluteImage] : undefined,
   };
 }
+
+const serializedSchema = schema
+  ? JSON.stringify(schema)
+      .replace(/</g, "\\u003c")
+      .replace(/\u2028/g, "\\u2028")
+      .replace(/\u2029/g, "\\u2029")
+  : null;
 ---
 
-{schema && (
+{serializedSchema && (
   <script
     is:inline
     type="application/ld+json"
-    set:html={JSON.stringify(schema)}
+    set:html={serializedSchema}
   />
 )}
